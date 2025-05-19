@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khushboo Thakur - Portfolio</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #2c0a38,
+          #3a1045,
+          #4a175a
+        ); /* darker purple gradient for feminine look */
+        color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+      
+      /* Yellow Glow Animation Effect */
+      @keyframes glowEffect {
+        0% {
+          box-shadow: 0 0 5px 2px rgba(255, 223, 0, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 15px 5px rgba(255, 223, 0, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 5px 2px rgba(255, 223, 0, 0.1);
+        }
+      }
+      
+      @keyframes textGlow {
+        0% {
+          text-shadow: 0 0 5px rgba(255, 223, 0, 0.1);
+        }
+        50% {
+          text-shadow: 0 0 10px rgba(255, 223, 0, 0.8);
+        }
+        100% {
+          text-shadow: 0 0 5px rgba(255, 223, 0, 0.1);
+        }
+      }
+      
+      /* Flower Animation */
+      @keyframes floatAnimation {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+      }
+      
+      @keyframes flowerGlow {
+        0% {
+          filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.3));
+        }
+        50% {
+          filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.7));
+        }
+        100% {
+          filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.3));
+        }
+      }
+      
+      /* Header Styles */
+      header {
+        background-color: rgba(28, 16, 41, 0.8);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        position: relative;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 223, 0, 0.3);
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        animation: textGlow 3s infinite;
+      }
+      
+      /* Navigation Styles */
+      nav {
+        margin-top: 20px;
+      }
+      
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+      
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 20px;
+        position: relative;
+      }
+      
+      nav ul li a:hover {
+        color: #ffd700;
+        background-color: rgba(255, 255, 255, 0.1);
+        animation: glowEffect 2s infinite;
+      }
+      
+      /* Section Styles */
+      .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+      
+      section {
+        background-color: rgba(28, 16, 41, 0.7);
+        margin: 30px auto;
+        padding: 30px;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 223, 0, 0.2);
+      }
+      
+      section:hover {
+        transform: translateY(-5px);
+        animation: glowEffect 2s infinite;
+      }
+      
+      h2 {
+        color: #ffd700;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 60px;
+        background: linear-gradient(90deg, #ffd700, transparent);
+      }
+      
+      /* Profile Photo Styles */
+      .profile-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        display: block;
+        margin: 15px auto 25px auto;
+        object-fit: cover;
+        border: 3px solid #ffd700;
+        animation: glowEffect 4s infinite;
+      }
+      
+      /* List Styles */
+      ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+      
+      ul li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 25px;
+      }
+      
+      ul li::before {
+        content: '✦';
+        color: #ffd700;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      
+      /* Footer Styles */
+      footer {
+        background-color: rgba(20, 10, 30, 0.9);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 40px;
+        border-top: 1px solid rgba(255, 223, 0, 0.3);
+        backdrop-filter: blur(10px);
+      }
+      
+      footer a {
+        color: #ffd700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      footer a:hover {
+        text-shadow: 0 0 10px rgba(255, 223, 0, 0.8);
+      }
+      
+      /* Glass Blur Effect on Scroll */
+      .glass-effect {
+        opacity: 0.9;
+        transition: opacity 0.5s ease, backdrop-filter 0.5s ease;
+      }
+      
+      /* Content Details Styling */
+      .content-box {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+      
+      .content-box p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+      
+      /* Flower Decoration */
+      .flower {
+        position: fixed;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.7;
+      }
+      
+      .flower-left {
+        top: 20%;
+        left: 3%;
+        width: 130px;
+        height: 130px;
+        animation: floatAnimation 8s ease-in-out infinite, flowerGlow 4s infinite;
+      }
+      
+      .flower-right {
+        top: 60%;
+        right: 3%;
+        width: 150px;
+        height: 150px;
+        animation: floatAnimation 10s ease-in-out infinite, flowerGlow 5s infinite;
+      }
+      
+      .flower-bottom-left {
+        bottom: 10%;
+        left: 5%;
+        width: 100px;
+        height: 100px;
+        animation: floatAnimation 6s ease-in-out infinite, flowerGlow 3s infinite;
+      }
+      
+      .flower-top-right {
+        top: 15%;
+        right: 5%;
+        width: 90px;
+        height: 90px;
+        animation: floatAnimation 7s ease-in-out infinite, flowerGlow 4s infinite;
+      }
+      
+      /* Media Queries */
+      @media (max-width: 768px) {
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+        
+        section {
+          padding: 20px;
+        }
+      }
+      
+      /* Cursor Effects */
+      .cursor-effect {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        mix-blend-mode: screen;
+        transform: translate(-50%, -50%) scale(0);
+        animation: cursorExpand 1s ease-out forwards;
+        opacity: 0.7;
+        background: radial-gradient(circle, rgba(255,192,203,0.8) 0%, rgba(255,105,180,0.5) 60%, transparent 100%);
+      }
+      
+      @keyframes cursorExpand {
+        0% {
+          transform: translate(-50%, -50%) scale(0);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(2.5);
+          opacity: 0;
+        }
+      }
+      
+      .sparkle {
+        position: absolute;
+        pointer-events: none;
+        width: 10px;
+        height: 10px;
+        z-index: 9998;
+      }
+      
+      @keyframes sparkleAnimation {
+        0% {
+          transform: scale(0) rotate(0deg);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1) rotate(180deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Pink Flower Decorations -->
+    <div class="flower flower-left">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15 C60 25, 75 25, 85 15 C95 5, 95 -5, 85 -15 C75 -25, 60 -25, 50 -15 C40 -25, 25 -25, 15 -15 C5 -5, 5 5, 15 15 C25 25, 40 25, 50 15" fill="#ff69b4" transform="translate(0, 50)" />
+        <circle cx="50" cy="50" r="10" fill="#ffb6c1" />
+      </svg>
+    </div>
+    
+    <div class="flower flower-right">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15 C60 25, 75 25, 85 15 C95 5, 95 -5, 85 -15 C75 -25, 60 -25, 50 -15 C40 -25, 25 -25, 15 -15 C5 -5, 5 5, 15 15 C25 25, 40 25, 50 15" fill="#ff1493" transform="translate(0, 50)" />
+        <circle cx="50" cy="50" r="12" fill="#ffb6c1" />
+      </svg>
+    </div>
+    
+    <div class="flower flower-bottom-left">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15 C60 25, 75 25, 85 15 C95 5, 95 -5, 85 -15 C75 -25, 60 -25, 50 -15 C40 -25, 25 -25, 15 -15 C5 -5, 5 5, 15 15 C25 25, 40 25, 50 15" fill="#ff69b4" transform="translate(0, 50)" />
+        <circle cx="50" cy="50" r="8" fill="#ff1493" />
+      </svg>
+    </div>
+    
+    <div class="flower flower-top-right">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15 C60 25, 75 25, 85 15 C95 5, 95 -5, 85 -15 C75 -25, 60 -25, 50 -15 C40 -25, 25 -25, 15 -15 C5 -5, 5 5, 15 15 C25 25, 40 25, 50 15" fill="#ff1493" transform="translate(0, 50)" />
+        <circle cx="50" cy="50" r="10" fill="#ffb6c1" />
+      </svg>
+    </div>
+    
+    <header class="glass-effect">
+      <h1>Welcome to My Portfolio</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#goals">Future Goals</a></li>
+          <li><a href="#personal">Personal Side</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <div class="container">
+      <section id="welcome" class="glass-effect">
+        <h2>Hello, I'm Khushboo</h2>
+        <img src="bot.jpg" alt="Khushboo" class="profile-photo" />
+      </section>
+      
+      <section id="about" class="glass-effect">
+        <h2>About Me</h2>
+        <div class="content-box">
+          <p><strong>Name:</strong> Khushboo Thakur</p>
+          <p><strong>Location:</strong> Palghar</p>
+          <p><strong>Education:</strong> BTech in Electronic and Computer Science</p>
+          <p><strong>Languages:</strong> English, Hindi</p>
+        </div>
+      </section>
+      
+      <section id="achievements" class="glass-effect">
+        <h2>Achievements</h2>
+        <div class="content-box">
+          <ul>
+            <li>Computer Networking</li>
+            <li>Cyber Security</li>
+            <li>Data Analysis</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="goals" class="glass-effect">
+        <h2>Future Goals</h2>
+        <div class="content-box">
+          <p>Software Engineer</p>
+        </div>
+      </section>
+      
+      <section id="personal" class="glass-effect">
+        <h2>Personal Side</h2>
+        <div class="content-box">
+          <p><strong>Hobbies:</strong> Coding, reading, exploring</p>
+          <p><strong>Favorite Role Models:</strong> Elon Musk</p>
+          <p><strong>Favorite Books:</strong> Haunting Adeline</p>
+          <p><strong>Volunteering Experience:</strong> Land Rover, Cisco Packet Tracer</p>
+        </div>
+      </section>
+    </div>
+    
+    <footer class="glass-effect">
+      <p>&copy; 2027 Khushboo Thakur. All rights reserved.</p>
+      <p>
+        Connect with me on <a href="https://github.com/yourusername">GitHub</a>
+      </p>
+    </footer>
+    
+    <script>
+      // JavaScript for glass blur effect on scroll
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('.glass-effect');
+        
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const sectionBottom = section.getBoundingClientRect().bottom;
+          const windowHeight = window.innerHeight;
+          
+          // Check if section is in viewport
+          if (sectionTop < windowHeight && sectionBottom > 0) {
+            // The more we scroll, the more blur we apply
+            const scrollPosition = window.scrollY;
+            const blurAmount = Math.min(10, scrollPosition / 100);
+            
+            section.style.backdropFilter = `blur(${blurAmount}px)`;
+            section.style.opacity = 1;
+          } else {
+            section.style.backdropFilter = 'blur(5px)';
+            section.style.opacity = 0.9;
+          }
+        });
+      });
+      
+      // Add more flowers dynamically
+      function createFlower(size, color, left, top) {
+        const flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.style.left = left + '%';
+        flower.style.top = top + '%';
+        flower.style.width = size + 'px';
+        flower.style.height = size + 'px';
+        flower.style.animation = `floatAnimation ${Math.random() * 5 + 5}s ease-in-out infinite, flowerGlow ${Math.random() * 3 + 2}s infinite`;
+        
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 100 100');
+        
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M50 15 C60 25, 75 25, 85 15 C95 5, 95 -5, 85 -15 C75 -25, 60 -25, 50 -15 C40 -25, 25 -25, 15 -15 C5 -5, 5 5, 15 15 C25 25, 40 25, 50 15');
+        path.setAttribute('fill', color);
+        path.setAttribute('transform', 'translate(0, 50)');
+        
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', '50');
+        circle.setAttribute('cy', '50');
+        circle.setAttribute('r', '10');
+        circle.setAttribute('fill', '#ffb6c1');
+        
+        svg.appendChild(path);
+        svg.appendChild(circle);
+        flower.appendChild(svg);
+        
+        document.body.appendChild(flower);
+      }
+      
+      // Create several small flowers
+      for (let i = 0; i < 8; i++) {
+        const size = Math.random() * 40 + 30;
+        const colors = ['#ff69b4', '#ff1493', '#db7093', '#ffb6c1'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const left = Math.random() * 90 + 5;
+        const top = Math.random() * 90 + 5;
+        
+        // Prevent flowers from crowding the center content
+        if ((left > 20 && left < 80) && (top > 20 && top < 80)) {
+          continue;
+        }
+        
+        createFlower(size, color, left, top);
+      }
+      
+      // Cursor following splash effect
+      document.addEventListener('mousemove', function(e) {
+        // Create splash effect
+        if (Math.random() > 0.7) { // Only create effect sometimes for performance
+          createCursorEffect(e.clientX, e.clientY);
+        }
+        
+        // Create sparkles
+        if (Math.random() > 0.85) {
+          createSparkle(e.clientX, e.clientY);
+        }
+      });
+      
+      function createCursorEffect(x, y) {
+        const effect = document.createElement('div');
+        effect.className = 'cursor-effect';
+        
+        // Random color variations
+        const colors = [
+          'rgba(255,192,203,0.8)', // Pink
+          'rgba(255,105,180,0.6)', // Hot Pink
+          'rgba(255,223,0,0.5)',   // Yellow (from existing theme)
+          'rgba(238,130,238,0.7)'  // Violet
+        ];
+        
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        effect.style.background = `radial-gradient(circle, ${randomColor} 0%, rgba(255,105,180,0.3) 70%, transparent 100%)`;
+        
+        // Random size
+        const size = Math.random() * 20 + 30;
+        effect.style.width = `${size}px`;
+        effect.style.height = `${size}px`;
+        
+        effect.style.left = `${x}px`;
+        effect.style.top = `${y}px`;
+        
+        document.body.appendChild(effect);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+          effect.remove();
+        }, 1000);
+      }
+      
+      function createSparkle(x, y) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        
+        // Create sparkle shape using SVG
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        
+        // Different sparkle shapes
+        const sparkleShapes = [
+          // Star
+          'M12 0 L14 8 L22 8 L16 13 L18 22 L12 17 L6 22 L8 13 L2 8 L10 8 Z',
+          // Flower
+          'M12 3 C14 6, 18 8, 21 8 C18 10, 18 14, 21 16 C18 16, 14 18, 12 21 C10 18, 6 16, 3 16 C6 14, 6 10, 3 8 C6 8, 10 6, 12 3',
+          // Diamond
+          'M12 0 L20 12 L12 24 L4 12 Z'
+        ];
+        
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', sparkleShapes[Math.floor(Math.random() * sparkleShapes.length)]);
+        
+        // Random sparkle color
+        const sparkleColors = ['#ff69b4', '#ffd700', '#ff1493', '#ffb6c1'];
+        path.setAttribute('fill', sparkleColors[Math.floor(Math.random() * sparkleColors.length)]);
+        
+        svg.appendChild(path);
+        sparkle.appendChild(svg);
+        
+        // Position
+        sparkle.style.left = `${x}px`;
+        sparkle.style.top = `${y}px`;
+        
+        // Random size
+        const size = Math.random() * 15 + 10;
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+        
+        // Animation
+        sparkle.style.animation = `sparkleAnimation ${Math.random() * 0.7 + 0.5}s ease-out forwards`;
+        
+        document.body.appendChild(sparkle);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+          sparkle.remove();
+        }, 1200);
+      }
+    </script>
+  </body>
+</html>
